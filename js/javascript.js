@@ -1,4 +1,18 @@
-let miBiblioteca = [];
+let miBiblioteca = [ {
+    titulo: "hobit",
+    autor: "tokieb",
+    paginas: 300,
+    estado: "leido",
+} , {
+    titulo: "coco",
+    autor: "echaue",
+    paginas: 200,
+    estado: "no leido",
+}
+
+
+
+];
 
 
 function Libro(titulo, autor, paginas, estado, ) {
@@ -17,7 +31,7 @@ function agregarLibro() {
     let paginasNuevoLibro = document.getElementById("paginasLibro").value;
     let estadoNuevoLibro = document.getElementById("estadoLibro").value;
     
-const nuevoLibro = Object.create(Libro);
+    let nuevoLibro = Object.create(Libro);
 
     nuevoLibro.titulo = tituloNuevoLibro;
     nuevoLibro.autor = autorNuevoLibro;
@@ -28,51 +42,36 @@ const nuevoLibro = Object.create(Libro);
 }
 
 function buscarLibro() {
-    
+    const libros = document.querySelector(".books");
+    miBiblioteca.forEach(elemento => {
+        let libroAAgregar = document.createElement("div");
+        libroAAgregar.classList.add("cards");
+        let tituloAAgregar = document.createElement("p");
+        tituloAAgregar.classList.add("titulo");
+        let autorAAgregar = document.createElement("p");
+        autorAAgregar.classList.add("autor");
+        let paginasAAgregar = document.createElement("p");
+        paginasAAgregar.classList.add("paginas");
+        let estadoAAgregar = document.createElement("p");
+        estadoAAgregar.classList.add("estado");
+        tituloAAgregar.textContent = elemento.titulo;
+        autorAAgregar.textContent = elemento.autor;
+        paginasAAgregar.textContent = elemento.paginas;
+        estadoAAgregar.textContent = elemento.estado;
+        libroAAgregar.appendChild(tituloAAgregar);
+        libroAAgregar.appendChild(autorAAgregar);
+        libroAAgregar.appendChild(paginasAAgregar);
+        libroAAgregar.appendChild(estadoAAgregar);
+        libros.appendChild(libroAAgregar);
+    }
+    )
 }
-
-        <div class="books">
-            <div class="cards">
-                <p class="titulo"></p>
-                <p class="autor"></p>
-                <p class="paginas"></p>
-                <p class="estado"></p>
-            </div>
-        </div>
-
-const libros = document.querySelector(".books");
-
-const libroAAgregar = document.createElement("div")
-libroAAgregar.classList.add("cards")
-
-
-libros.appendChild(libroAAgregar)
+buscarLibro();
 
 
 
-const tituloAAgregar = document.createElement("p")
-tituloAAgregar.classList.add("titulo")
-tituloAAgregar.textContent = ;
 
-const autorAAgregar = document.createElement("p")
-autorAAgregar.classList.add("autor")
-autorAAgregar.textContent = ;
-
-const paginasAAgregar = document.createElement("p")
-paginasAAgregar.classList.add("paginas")
-paginasAAgregar.textContent = ;
-
-const estadoAAgregar = document.createElement("p")
-estadoAAgregar.classList.add("estado")
-estadoAAgregar.textContent = ;
-
-libroAAgregar.appendChild(tituloAAgregar)
-libroAAgregar.appendChild(autorAAgregar)
-libroAAgregar.appendChild(paginasAAgregar)
-libroAAgregar.appendChild(estadoAAgregar)
-
-
-miBiblioteca.pop();
+/* miBiblioteca.pop(); */
 
 
 
