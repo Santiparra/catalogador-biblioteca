@@ -1,10 +1,10 @@
 let miBiblioteca = [];
 let libroNuevo;
 
-function Libro (titulo, autor, paginas, estado) {
+function Libro (titulo, autor, notas, estado) {
     this.titulo = titulo
     this.autor = autor
-    this.paginas = paginas
+    this.notas = notas
     this.estado = estado
 }
 
@@ -29,9 +29,9 @@ function sacarDatos(e) {
     e.preventDefault();
     let tituloNuevoLibro = document.getElementById("nombreLibro").value;
     let autorNuevoLibro = document.getElementById("autorLibro").value;
-    let paginasNuevoLibro = document.getElementById("paginasLibro").value;
+    let notasNuevoLibro = document.getElementById("abstract").value;
     let estadoNuevoLibro = document.getElementById("estadoLibro").value;
-    libroNuevo = new Libro(tituloNuevoLibro, autorNuevoLibro, paginasNuevoLibro, estadoNuevoLibro);    
+    libroNuevo = new Libro(tituloNuevoLibro, autorNuevoLibro, notasNuevoLibro, estadoNuevoLibro);    
     miBiblioteca.push(libroNuevo);
     refrescarDOM();
 }
@@ -48,8 +48,8 @@ function refrescarDOM() {
         tituloAAgregar.classList.add("titulo");
         let autorAAgregar = document.createElement("p");
         autorAAgregar.classList.add("autor");
-        let paginasAAgregar = document.createElement("p");
-        paginasAAgregar.classList.add("paginas");
+        let notasAAgregar = document.createElement("p");
+        notasAAgregar.classList.add("notas");
         let estadoAAgregar = document.createElement("p");
         estadoAAgregar.classList.add("estado");
         let botonBorrar = document.createElement("button");
@@ -59,7 +59,7 @@ function refrescarDOM() {
         marcarLeido.classList.add("botonLeido");
         tituloAAgregar.textContent = elemento.titulo;
         autorAAgregar.textContent = elemento.autor;
-        paginasAAgregar.textContent = elemento.paginas;
+        notasAAgregar.textContent = elemento.notas;
         estadoAAgregar.textContent = elemento.estado;
         botonBorrar.textContent = "Borrar";
         marcarLeido.textContent = "Leído"
@@ -69,7 +69,7 @@ function refrescarDOM() {
         }
         libroAAgregar.appendChild(tituloAAgregar);
         libroAAgregar.appendChild(autorAAgregar);
-        libroAAgregar.appendChild(paginasAAgregar);
+        libroAAgregar.appendChild(notasAAgregar);
         libroAAgregar.appendChild(estadoAAgregar);
         libroAAgregar.appendChild(botonBorrar);
         libroAAgregar.appendChild(marcarLeido);
