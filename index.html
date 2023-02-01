@@ -6,22 +6,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
         <script src="js/javascript.js" defer></script>
-        <title>Catalogador para bibliotecas</title>
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <title>Catálogo de Libros</title>
     </head>
     <body>
         <div class="formulario">
             <form class="hidden" id="agregar-libros">
-                <label for="nombreLibro">Titulo:</label>
-                <input type="text" name="nombreLibro" id="nombreLibro">
+                <label for="nombreLibro">Título:</label>
+                <input type="text" name="nombreLibro" id="nombreLibro" placeholder="Un título">
                 <label for="autorLibro">Autor:</label>
-                <input type="text" name="autorLibro" id="autorLibro">
+                <input type="text" name="autorLibro" id="autorLibro" placeholder="Un autor">
                 <div class="notes">
                     <label for="abstract">Notas:</label><textarea name="abstract" id="abstract" cols="30" rows="5" class="notas"></textarea>
                 </div>
                 <fieldset class="radio-bot">
-                    <legend>Has leido este libro?</legend>
-                    <input class="estadoLibro" id="libro-leido" name="leiste" type="radio" value="true"/><label for="libro-leido" class="radio-label">Leido</label>
-                    <input class="estadoLibro" id="libro-no-leido" name="leiste" type="radio" value="false" checked/><label for="libro-no-leido" class="radio-label">No leido</label>
+                    <legend>Has leído este libro?</legend>
+                    <input class="estadoLibro" id="libro-leido" name="leiste" type="radio" value="true"/><label for="libro-leido" class="radio-label">Leído</label>
+                    <input class="estadoLibro" id="libro-no-leido" name="leiste" type="radio" value="false" checked/><label for="libro-no-leido" class="radio-label">No leído</label>
                 </fieldset> 
                     <div class="botones-form">
                     <button class="cancelar" type="button">Cancelar</button>
@@ -31,20 +33,18 @@
         </div>
         <div class="container" >
                 <div class="header">
-                    <h3>Mi Catalogo</h3>
-
+                    <h3>Mi Catálogo</h3>
+                    <div class="footer">
+                        <p>Santiparra </p>
+                        <a href="https://github.com/Santiparra">
+                        <img src="img/github-mark-white.svg" alt="Logo de Github conteniendo un link"/></a>
+                    </div> 
                 </div>
                 <div class="content">
                     <button class="agregarLibro">+ Añadir Libro</button>
-                    <div class="books">
-                
+                    <div class="books">                
                     </div>            
-                </div>
-                <div class="footer">
-                    <p>Santiparra</p>
-                    <a href="https://github.com/Santiparra">
-                    <img src="img/github-mark.svg" alt="Logo de Github conteniendo un link"/></a>
-                </div>               
+                </div>             
         </div>       
     </body>
 </html>

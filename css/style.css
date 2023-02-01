@@ -8,7 +8,7 @@
     --details-color: #0d9488;
     --font1: "Roboto";
     --font2: "Roboto Condensed";
-    --fontlogo: "BoxfontRoundRegular";
+    --fontlogo: "Oswald";
     --fallback-fonts: "Inter,Helvetica Neue,Helvetica,Arial,sans-serif";
 }
 
@@ -28,13 +28,31 @@ body {
     background-color: var(--main-color);
 }
 
+h3 {
+    font-family: var(--fontlogo);
+    font-weight: 700;
+}
+
 .header {
     background-color: var(--header-color);
     color: var(--main-color);
     font-size: 2rem;
     font-family: var(--fontlogo);
-    padding: 10px;
+    padding: 20px;
     font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-style: italic;
+    gap: 20px;
+}
+img {
+  height: 30px;
+  width: 30px;
 }
 
 .content {
@@ -93,17 +111,26 @@ textarea {
     align-items: flex-start;
 }
 
-input[type="checkbox"] {
-    height: 2rem;
-    width: 2rem;
-    background-color: var(--sec-color);
+.radio-bot {
+    border: none;
 }
 
-.chexbox-label {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 1rem;
+.radio-bot legend {
+    width: 120px;
+    text-align: right;
+    padding-right: 20px;
+    float: left;
+}
+
+.radio-bot .radio-label {
+    display: block;
+    padding: 0 20px 0 10px;
+  
+}
+  
+.radio-bot .radio-label,
+.radio-bot input[type='radio'] {
+    float: left;
 }
 
 
@@ -137,17 +164,19 @@ input[type="checkbox"] {
     background-color: var(--main-color);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-template-rows: max-content max-content;
     gap: 1rem;
     padding: 1rem;
 }
 .cards {
     background-color: var(--sec-color);
-    padding: 2rem;
-    align-items: end;
-    display: grid;
-    grid-template-rows: max-content max-content 1fr;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 1rem;
+    font-family: var(--font1);
+    font-weight: 700;
+    font-size: 15px;
 }
 
 .cardReaded {
@@ -162,47 +191,28 @@ input[type="checkbox"] {
 
 .read{
     background-color: var(--third-color);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .unread{
     background-color: var(--fourth-color);
-}
-
-.titulo {
-
-}
-
-.autor {
-
-}
-
-.notas{
-
-}
-
-.estado{
-
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .botonBorrado{
-
-}
-
-.botonLeido {
-
-}
-.footer {
-    position: absolute;
-    bottom: 0;
-    display: flex;
+    cursor: pointer;
+    background-color: var(--header-color);
+    width: 30%;
     align-self: center;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-  }
-img {
-    height: 30px;
-    width: 30px;
-}
-  
+    border: none;
+    color: var(--main-color);
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-radius: 10%;
+} 
