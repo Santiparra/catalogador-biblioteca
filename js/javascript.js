@@ -2,12 +2,11 @@ let miBiblioteca = [
 ];
 let libroNuevo;
 
-function Libro (titulo, autor, paginas, estado, id) {
+function Libro (titulo, autor, paginas, estado) {
     this.titulo = titulo
     this.autor = autor
     this.paginas = paginas
     this.estado = estado
-    this.id = id  
 }
 
 function sacarDatos(e) {
@@ -16,8 +15,7 @@ function sacarDatos(e) {
     let autorNuevoLibro = document.getElementById("autorLibro").value;
     let paginasNuevoLibro = document.getElementById("paginasLibro").value;
     let estadoNuevoLibro = document.getElementById("estadoLibro").value;
-    let idLibro = miBiblioteca.length;
-    libroNuevo = new Libro(tituloNuevoLibro, autorNuevoLibro, paginasNuevoLibro, estadoNuevoLibro, idLibro);    
+    libroNuevo = new Libro(tituloNuevoLibro, autorNuevoLibro, paginasNuevoLibro, estadoNuevoLibro);    
     miBiblioteca.push(libroNuevo);
     refrescarDOM();
 
@@ -32,7 +30,7 @@ function refrescarDOM() {
     miBiblioteca.forEach(elemento => {
         let libroAAgregar = document.createElement("div");
         libroAAgregar.classList.add("cards");
-        libroAAgregar.setAttribute("id", miBiblioteca.indexOf(elemento))
+        /* libroAAgregar.setAttribute("id", miBiblioteca.indexOf(elemento)) */
         
         let tituloAAgregar = document.createElement("p");
         tituloAAgregar.classList.add("titulo");
@@ -44,6 +42,7 @@ function refrescarDOM() {
         estadoAAgregar.classList.add("estado");
         let botonBorrar = document.createElement("button");
         botonBorrar.classList.add("botonBorrado");
+        botonBorrar.setAttribute("id", miBiblioteca.indexOf(elemento))
         tituloAAgregar.textContent = elemento.titulo;
         autorAAgregar.textContent = elemento.autor;
         paginasAAgregar.textContent = elemento.paginas;
@@ -55,14 +54,16 @@ function refrescarDOM() {
         libroAAgregar.appendChild(estadoAAgregar);
         libroAAgregar.appendChild(botonBorrar);
         libros.appendChild(libroAAgregar);   
+
+         botonBorrar.addEventListener("click", () => {
+            miBiblioteca.splice(miBiblioteca.indexOf(elemento), 1 );
+            refrescarDOM()
+        } 
+        ) 
+        
     }
 )
 }
-
-function refrescarPantalla(params) {
-    
-}
-
 let enviarFormulario = document.getElementById("agregar-libros");
 enviarFormulario.addEventListener("submit", (e) => {
     sacarDatos(e);
@@ -76,16 +77,15 @@ function valorCheckbox(element) {
        element.value="false";
 }
 
-function borrarLibro() {
-    let quieroBorrar = document.querySelectorAll(".botonBorrado")
-    quieroBorrar.forEach(boton => {
-
-    }
-    )
-}
 
 
-
+/* let quieroBorrar = document.querySelectorAll(".botonBorrado");
+quieroBorrar.forEach((button) => {
+      button.addEventListener("click", () => {
+      tajetaABorrar = +button.id 
+      miBiblioteca.splice(tajetaABorrar, 1)
+    });
+  }); */
 /* clase añadir form-to-add */
  /*    enviarFormulario.onsubmit = event.preventDefault();
    refrescarDOM(); */
