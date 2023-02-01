@@ -15,17 +15,15 @@
                 <input type="text" name="nombreLibro" id="nombreLibro">
                 <label for="autorLibro">Autor:</label>
                 <input type="text" name="autorLibro" id="autorLibro">
-            <!--    <label for="paginassLibro">Paginas:</label>
-                <input type="text" name="paginasLibro" id="paginasLibro"> -->
                 <div class="notes">
                     <label for="abstract">Notas:</label><textarea name="abstract" id="abstract" cols="30" rows="5" class="notas"></textarea>
                 </div>
-                <div class="cb">
-                    <label class="chexbox-label" for="estadoLibro">
-                    <input type="checkbox" value="false" name="estadoLibro" id="estadoLibro" onchange="valorCheckbox(this)"> 
-                    <span>Has leido este libro?</span></label>
-                </div>
-                <div class="botones-form">
+                <fieldset class="radio-bot">
+                    <legend>Has leido este libro?</legend>
+                    <input class="estadoLibro" id="libro-leido" name="leiste" type="radio" value="true"/><label for="libro-leido" class="radio-label">Leido</label>
+                    <input class="estadoLibro" id="libro-no-leido" name="leiste" type="radio" value="false" checked/><label for="libro-no-leido" class="radio-label">No leido</label>
+                </fieldset> 
+                    <div class="botones-form">
                     <button class="cancelar" type="button">Cancelar</button>
                     <button class="agregar" type="submit">Agregar</button>
                 </div>
