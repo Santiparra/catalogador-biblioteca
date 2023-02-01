@@ -30,8 +30,6 @@ function refrescarDOM() {
     miBiblioteca.forEach(elemento => {
         let libroAAgregar = document.createElement("div");
         libroAAgregar.classList.add("cards");
-        /* libroAAgregar.setAttribute("id", miBiblioteca.indexOf(elemento)) */
-        
         let tituloAAgregar = document.createElement("p");
         tituloAAgregar.classList.add("titulo");
         let autorAAgregar = document.createElement("p");
@@ -43,32 +41,44 @@ function refrescarDOM() {
         let botonBorrar = document.createElement("button");
         botonBorrar.classList.add("botonBorrado");
         botonBorrar.setAttribute("id", miBiblioteca.indexOf(elemento))
+        let marcarLeido = document.createElement("button");
+        marcarLeido.classList.add("botonLeido");
         tituloAAgregar.textContent = elemento.titulo;
         autorAAgregar.textContent = elemento.autor;
         paginasAAgregar.textContent = elemento.paginas;
         estadoAAgregar.textContent = elemento.estado;
         botonBorrar.textContent = "Borrar";
+        marcarLeido.textContent = "Leído"
+        if (elemento.estado === "true") {
+            estadoAAgregar.textContent = "Leído"
+        } else { estadoAAgregar.textContent = "Sin leer"    
+        }
+
         libroAAgregar.appendChild(tituloAAgregar);
         libroAAgregar.appendChild(autorAAgregar);
         libroAAgregar.appendChild(paginasAAgregar);
         libroAAgregar.appendChild(estadoAAgregar);
         libroAAgregar.appendChild(botonBorrar);
+        libroAAgregar.appendChild(marcarLeido);
         libros.appendChild(libroAAgregar);   
 
          botonBorrar.addEventListener("click", () => {
             miBiblioteca.splice(miBiblioteca.indexOf(elemento), 1 );
             refrescarDOM()
-        } 
-        ) 
-        
+        })       
+        marcarLeido.addEventListener("click", () => {
+            if (elemento.estado === "true") {
+                elemento.estado = "false"
+            } else {elemento.estado = "true"}
+            refrescarDOM()
+        })
     }
-)
-}
+)}
+
 let enviarFormulario = document.getElementById("agregar-libros");
 enviarFormulario.addEventListener("submit", (e) => {
     sacarDatos(e);
-}
-)  
+})  
 
 function valorCheckbox(element) {
     if(element.checked) 
@@ -77,15 +87,6 @@ function valorCheckbox(element) {
        element.value="false";
 }
 
-
-
-/* let quieroBorrar = document.querySelectorAll(".botonBorrado");
-quieroBorrar.forEach((button) => {
-      button.addEventListener("click", () => {
-      tajetaABorrar = +button.id 
-      miBiblioteca.splice(tajetaABorrar, 1)
-    });
-  }); */
 /* clase añadir form-to-add */
  /*    enviarFormulario.onsubmit = event.preventDefault();
    refrescarDOM(); */
