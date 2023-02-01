@@ -9,7 +9,24 @@
         <title>Catalogador para bibliotecas</title>
     </head>
     <body>
-         <div class="container" >
+        <div class="formulario">
+            <form class="hidden" id="agregar-libros">
+                <label for="nombreLibro">Titulo:</label>
+                <input type="text" name="nombreLibro" id="nombreLibro">
+                <label for="autorLibro">Autor:</label>
+                <input type="text" name="autorLibro" id="autorLibro">
+                <label for="paginasLibro">Paginas:</label>
+                <input type="text" name="paginasLibro" id="paginasLibro">
+                <label class="chexbox-label" for="estadoLibro">
+                <input type="checkbox" value="false" name="estadoLibro" id="estadoLibro" onchange="valorCheckbox(this)"> 
+                <span>Has leido este libro?</span></label>
+                <div class="botones-form">
+                    <button class="cancelar" type="button">Cancelar</button>
+                    <button class="agregar" type="submit">Agregar</button>
+                </div>
+            </form> 
+        </div>
+        <div class="container" >
                 <div class="header">
                     <h3>Mi Catalogo</h3>
 
@@ -18,21 +35,13 @@
                     <button class="agregarLibro">+ Añadir Libro</button>
                     <div class="books">
                 
-                    </div>
-                    <form class="hidden" id="agregar-libros">
-                        <input type="text" name="nombreLibro" id="nombreLibro">
-                        <input type="text" name="autorLibro" id="autorLibro">
-                        <input type="text" name="paginasLibro" id="paginasLibro">
-                        <input type="checkbox" value="false" name="estadoLibro" id="estadoLibro" onchange="valorCheckbox(this)"> 
-                        <button type="submit">Agregar</button>
-                    </form>                
+                    </div>            
                 </div>
                 <div class="footer">
                     <p>Santiparra</p>
                     <a href="https://github.com/Santiparra">
                     <img src="img/github-mark.svg" alt="Logo de Github conteniendo un link"/></a>
-
                 </div>               
-        </div>
+        </div>       
     </body>
 </html>

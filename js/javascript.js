@@ -15,6 +15,16 @@ mostrarFormulario.addEventListener("click", () => {
     formulario.classList.add("mostrar");
 })  
 
+let cancelarFormulario = document.querySelector(".cancelar");
+cancelarFormulario.addEventListener("click", () => {
+    formulario.classList.remove("mostrar");
+    formulario.classList.add("hidden");
+    formulario.reset();
+})  
+
+
+
+
 function sacarDatos(e) {
     e.preventDefault();
     let tituloNuevoLibro = document.getElementById("nombreLibro").value;
@@ -83,6 +93,7 @@ enviarFormulario.addEventListener("submit", (e) => {
     formulario.classList.remove("mostrar");
     formulario.classList.add("hidden");
     sacarDatos(e);
+    e.target.reset()
 })  
 
 function valorCheckbox(element) {
