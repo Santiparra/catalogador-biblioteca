@@ -1,2 +1,7 @@
-/* form-to-add
-display: none; */
+.hidden {
+display: none; 
+}
+
+.mostrar {
+    display: block;
+}

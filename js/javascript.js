@@ -9,6 +9,14 @@ function Libro (titulo, autor, paginas, estado) {
     this.estado = estado
 }
 
+let formulario = document.querySelector("form")
+let mostrarFormulario = document.querySelector(".agregarLibro");
+mostrarFormulario.addEventListener("click", () => {
+    formulario.classList.remove("hidden");
+    formulario.classList.add("mostrar");
+    ;
+})  
+
 function sacarDatos(e) {
     e.preventDefault();
     let tituloNuevoLibro = document.getElementById("nombreLibro").value;
@@ -77,6 +85,8 @@ function refrescarDOM() {
 
 let enviarFormulario = document.getElementById("agregar-libros");
 enviarFormulario.addEventListener("submit", (e) => {
+    formulario.classList.remove("mostrar");
+    formulario.classList.add("hidden");
     sacarDatos(e);
 })  
 
@@ -87,7 +97,7 @@ function valorCheckbox(element) {
        element.value="false";
 }
 
-/* clase añadir form-to-add */
- /*    enviarFormulario.onsubmit = event.preventDefault();
-   refrescarDOM(); */
 
+
+/* clase añadir form-to-add */
+ 
