@@ -9,30 +9,30 @@
         <title>Catalogador para bibliotecas</title>
     </head>
     <body>
-         
-        <div class="books">
-            <div class="cards">
-                <p class="titulo"></p>
-                <p class="autor"></p>
-                <p class="paginas"></p>
-                <p class="estado"></p>
-            </div>
+         <div class="container" >
+                <div class="header">
+                    <h3>Mi Catalogo</h3>
+
+                </div>
+                <div class="content">
+                    <button class="agregarLibro">+ Añadir Libro</button>
+                    <div class="books">
+                
+                    </div>
+                    <form class="hidden" id="agregar-libros">
+                        <input type="text" name="nombreLibro" id="nombreLibro">
+                        <input type="text" name="autorLibro" id="autorLibro">
+                        <input type="text" name="paginasLibro" id="paginasLibro">
+                        <input type="checkbox" value="false" name="estadoLibro" id="estadoLibro" onchange="valorCheckbox(this)"> 
+                        <button type="submit">Agregar</button>
+                    </form>                
+                </div>
+                <div class="footer">
+                    <p>Santiparra</p>
+                    <a href="https://github.com/Santiparra">
+                    <img src="img/github-mark.svg" alt="Logo de Github conteniendo un link"/></a>
+
+                </div>               
         </div>
-
-
-        <button class="agregarLibro">Añadir Libro</button>
-        <form class="hidden" id="agregar-libros">
-            <input type="text" name="nombreLibro" id="nombreLibro">
-            <input type="text" name="autorLibro" id="autorLibro">
-            <input type="text" name="paginasLibro" id="paginasLibro">
-            <input type="checkbox" 
-            value="false" 
-            name="estadoLibro" 
-            id="estadoLibro"
-            onchange="valorCheckbox(this)"
-            > 
-            <button type="submit">Agregar</button>
-        </form>     
-
     </body>
 </html>

@@ -1,3 +1,68 @@
+:root {
+    --main-color: #fafafa;
+    --header-color: #0c4a6e;
+    --sec-color: #e5e5e5;
+    --third-color: #6ee7b7;
+    --fourth-color: #ef4444;
+    --details-color: #0d9488;
+    --font1: "Roboto";
+    --font2: "Roboto Condensed";
+    --fontlogo: "BoxfontRoundRegular";
+    --fallback-fonts: "Inter,Helvetica Neue,Helvetica,Arial,sans-serif";
+}
+  
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--main-color);
+    font-family: var(--font1);
+    box-sizing: border-box;
+}
+  
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-color);
+}
+
+.header {
+    background-color: var(--header-color);
+    color: var(--main-color);
+    font-size: 2rem;
+    font-family: var(--fontlogo);
+    padding: 10px;
+    font-weight: 700;
+}
+
+.content {
+    flex: 1;
+    display: grid;
+    grid-template-rows: max-content max-content;
+}
+
+.agregarLibro {
+    background-color: var(--main-color);
+    font-size: 3rem;
+    border: none;
+    cursor: pointer;
+}
+
+
+.books{
+    background-color: var(--main-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: max-content max-content;
+    gap: 1rem;
+    padding: 1rem;
+}
+
 .hidden {
 display: none; 
 }
@@ -5,3 +70,19 @@ display: none;
 .mostrar {
     display: block;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+img {
+    height: 30px;
+    width: 30px;
+}
+  

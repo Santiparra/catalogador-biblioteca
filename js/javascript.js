@@ -1,5 +1,4 @@
-let miBiblioteca = [ 
-];
+let miBiblioteca = [];
 let libroNuevo;
 
 function Libro (titulo, autor, paginas, estado) {
@@ -14,7 +13,6 @@ let mostrarFormulario = document.querySelector(".agregarLibro");
 mostrarFormulario.addEventListener("click", () => {
     formulario.classList.remove("hidden");
     formulario.classList.add("mostrar");
-    ;
 })  
 
 function sacarDatos(e) {
@@ -26,8 +24,6 @@ function sacarDatos(e) {
     libroNuevo = new Libro(tituloNuevoLibro, autorNuevoLibro, paginasNuevoLibro, estadoNuevoLibro);    
     miBiblioteca.push(libroNuevo);
     refrescarDOM();
-
-    console.log(libroNuevo);
 }
 
 function refrescarDOM() {
@@ -61,7 +57,6 @@ function refrescarDOM() {
             estadoAAgregar.textContent = "Leído"
         } else { estadoAAgregar.textContent = "Sin leer"    
         }
-
         libroAAgregar.appendChild(tituloAAgregar);
         libroAAgregar.appendChild(autorAAgregar);
         libroAAgregar.appendChild(paginasAAgregar);
@@ -95,9 +90,4 @@ function valorCheckbox(element) {
         element.value="true"; 
     else
        element.value="false";
-}
-
-
-
-/* clase añadir form-to-add */
- 
+} 
