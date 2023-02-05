@@ -30,10 +30,12 @@ function sacarDatos(e) {
     let estadoNuevoLibro = radioBox();
     libroNuevo = new Libro(tituloNuevoLibro, autorNuevoLibro, notasNuevoLibro, estadoNuevoLibro);    
     miBiblioteca.push(libroNuevo);
+    saveLocal();
     refrescarDOM();
 }
 
 function refrescarDOM() {
+    getLocalStorage()
     const libros = document.querySelector(".books");
      while (libros.hasChildNodes()) {
         libros.removeChild(libros.firstChild);
@@ -103,3 +105,16 @@ const radioBox = () => {
     if(formulario.querySelector('input[name="leiste"]:checked').value == "true") return "true";
     else return "false";
 }
+
+function saveLocal() {
+    localStorage.setItem("catalogo", JSON.stringify(miBiblioteca));
+  }
+
+function getLocalStorage() {
+    if (localStorage.getItem("catalogo")) {
+      miBiblioteca = JSON.parse(localStorage.getItem("catalogo"));
+    } else {
+      miBiblioteca = [];
+    }
+}
+refrescarDOM()
